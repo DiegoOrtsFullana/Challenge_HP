@@ -8,7 +8,7 @@ let nextId = 1;
 
 // POST route for registering new users
 router.post('/', (req, res) => {
-    const { username, password } = req.body;
+    const { username, password} = req.body;
 
     // Username and password length validation
     if (username.length < 8 || username.length > 12 || password.length < 8 || password.length > 12) {
@@ -30,8 +30,8 @@ router.post('/', (req, res) => {
     const newUser = { id: nextId++, username, password };
     users.push(newUser);
 
-    // Respond with success
-    res.status(201).json({ message: 'User registered successfully' });
+    // Respond with success and user ID
+    res.status(201).json({ message: 'User registered successfully', id: newUser.id });
 });
 
 module.exports = router;
