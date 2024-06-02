@@ -9,7 +9,7 @@ const app = express();
 
 // Middlewares
 app.use(bodyParser.json()); // Middleware to parse request bodies as JSON
-app.use(cors({ // Middleware to allow CORS
+app.use(cors({ 
     origin: 'http://localhost:3000', // Allow requests
     methods: ['GET', 'POST'] 
 }));
@@ -18,7 +18,7 @@ app.use(cors({ // Middleware to allow CORS
 app.use('/signup', authRoutes); // Use authentication routes for the '/signup' route
 
 // Start the server on port 3001
-const PORT = process.env.PORT || 3001; // Port scpecifed
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`); // Log in the console indicating that the server is running
+    console.log(`Server is running on port ${PORT}`); 
 });
